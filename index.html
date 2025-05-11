@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-keyboard"></i> Typing Master Pro</h1>
+            <div class="theme-toggle">
+                <button id="themeBtn" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="line">Line Mode</button>
+                <button class="mode-btn" data-mode="paragraph">Paragraph Mode</button>
+                <button class="mode-btn" data-mode="timed">Timed Test</button>
+            </div>
+        </header>
+
+        <div class="settings-panel">
+            <div class="setting">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="setting">
+                <label for="duration">Duration (timed mode):</label>
+                <select id="duration">
+                    <option value="1">1 minute</option>
+                    <option value="2">2 minutes</option>
+                    <option value="5">5 minutes</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="typing-container">
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span class="stat-value" id="timer">00:00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">WPM:</span>
+                    <span class="stat-value" id="wpm">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Accuracy:</span>
+                    <span class="stat-value" id="accuracy">0%</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Progress:</span>
+                    <span class="stat-value" id="progress">0%</span>
+                </div>
+            </div>
+
+            <div class="text-display" id="textDisplay">
+                <div class="placeholder">Select a mode and click Start to begin</div>
+            </div>
+
+            <div class="input-area">
+                <textarea id="textInput" placeholder="Start typing here..." disabled></textarea>
+                <div class="controls">
+                    <button id="startBtn" class="btn-primary">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="resetBtn" class="btn-secondary" disabled>
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-panel hidden" id="resultsPanel">
+            <h2>Test Results</h2>
+            <div class="result-grid">
+                <div class="result-item">
+                    <div class="result-value" id="finalWpm">0</div>
+                    <div class="result-label">Words Per Minute</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="finalAccuracy">0%</div>
+                    <div class="result-label">Accuracy</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="finalTime">00:00</div>
+                    <div class="result-label">Time</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-value" id="finalChars">0</div>
+                    <div class="result-label">Characters</div>
+                </div>
+            </div>
+            <button id="newTestBtn" class="btn-primary">
+                <i class="fas fa-plus"></i> New Test
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
